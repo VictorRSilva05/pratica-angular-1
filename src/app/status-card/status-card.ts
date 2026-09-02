@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-status-card',
@@ -6,4 +6,8 @@ import { Component } from '@angular/core';
   templateUrl: './status-card.html',
   styleUrl: './status-card.scss',
 })
-export class StatusCard {}
+export class StatusCard {
+
+  @Input() studentName: string = '';
+  @Input() available: boolean = false;
+}
