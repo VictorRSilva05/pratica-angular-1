@@ -2,10 +2,18 @@ import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.html',
   standalone: false,
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
+  templateUrl: './app.html',
 })
 export class App {
-  protected readonly title = signal('pratica-angular-1');
+  protected readonly title = signal('pratica-angular');
+
+  public name: string = 'Victor';
+  public available: boolean = false;
+  public fontSize: number = 16;
+
+  public toggleAvailability(): void{
+    this.available = !this.available;
+  }
 }
