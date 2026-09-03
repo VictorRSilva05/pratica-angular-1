@@ -1,8 +1,1 @@
-<app-status-card [available]="available" [studentName]="name"></app-status-card>
-
-<br>
-
-<button (click)="toggleAvailability()"
-[style.font-size.px]="fontSize"
-[class.available]="available"
-[class.unavailable]="!available">Available?</button>
+<app-status-card [available]="available" [studentName]="name" (availabilityChanged)="changeAvailability($event)"></app-status-card>

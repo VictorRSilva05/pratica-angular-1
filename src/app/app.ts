@@ -16,4 +16,8 @@ export class App {
   public toggleAvailability(): void{
     this.available = !this.available;
   }
+
+  public changeAvailability(availability : boolean): void{
+    this.available = availability;
+  }
 }
