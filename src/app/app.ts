@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,17 +8,26 @@ import { Component, signal } from '@angular/core';
   templateUrl: './app.html',
 })
 export class App {
-  protected readonly title = signal('pratica-angular');
-
-  public name: string = 'Victor';
+  public name: string = '';
+  public email: string = '';
   public available: boolean = false;
   public fontSize: number = 16;
 
-  public toggleAvailability(): void{
+  userForm = new FormGroup({
+    name: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.required)
+  })
+
+  public toggleAvailability(): void {
     this.available = !this.available;
   }
 
-  public changeAvailability(availability : boolean): void{
+  public changeAvailability(availability: boolean): void {
     this.available = availability;
+  }
+
+  onFormSubmit() {
+    this.name = this.userForm.value.name ?? '';
+    this.email = this.userForm.value.email ?? '';
   }
 }

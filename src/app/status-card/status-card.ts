@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, input, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-status-card',
@@ -9,6 +9,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class StatusCard {
 
   @Input() studentName: string = '';
+  @Input() studentEmail: string = '';
   @Input() available: boolean = false;
 
   @Output() availabilityChanged = new EventEmitter<boolean>();

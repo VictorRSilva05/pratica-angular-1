@@ -1,1 +1,17 @@
-<app-status-card [available]="available" [studentName]="name" (availabilityChanged)="changeAvailability($event)"></app-status-card>
+<app-status-card [available]="available" [studentName]="name" [studentEmail]="email"
+    (availabilityChanged)="changeAvailability($event)"></app-status-card>
+
+
+<form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
+
+    <div class="form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" formControlName="name">
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" formControlName="email">
+
+        <button type="submit">Save</button>
+    </div>
+
+</form>
