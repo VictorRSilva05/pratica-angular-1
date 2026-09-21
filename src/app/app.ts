@@ -27,6 +27,10 @@ export class App {
   }
 
   onFormSubmit() {
+    if(this.userForm.invalid){
+      return;
+    }
+
     this.name = this.userForm.value.name ?? '';
     this.email = this.userForm.value.email ?? '';
   }
