@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UserService } from './user/user.service';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +9,15 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   templateUrl: './app.html',
 })
 export class App {
+  public hasUser: boolean = false;
   public name: string = '';
   public email: string = '';
   public available: boolean = false;
   public fontSize: number = 16;
+
+  constructor(
+    private userService: UserService,
+  ) { }
 
   userForm = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -26,8 +32,18 @@ export class App {
     this.available = availability;
   }
 
+  public loadUser() {
+    this.userService.getUser().subscribe({
+      next: (data) => {
+        this.name = data.name,
+        this.email = data.email,
+        this.hasUser = true;
+      }
+    })
+  }
+
   onFormSubmit() {
-    if(this.userForm.invalid){
+    if (this.userForm.invalid) {
       return;
     }
 

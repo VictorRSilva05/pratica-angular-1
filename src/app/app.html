@@ -2,8 +2,15 @@
     (availabilityChanged)="changeAvailability($event)"></app-status-card>
 
 
-<form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
+<div class="user-card" *ngIf="hasUser">
+    <p>Name: {{ name}}</p>
+    <p>Email: {{ email }}</p>
+</div>
 
+<button (click)="loadUser()">Load user</button>
+
+
+<form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
     <div class="form">
         <label for="name">Name:</label>
         <input type="text" id="name" formControlName="name">
@@ -15,5 +22,4 @@
 
         <button [disabled]="userForm.invalid" type="submit">Save</button>
     </div>
-
 </form>
