@@ -1,4 +1,5 @@
 import { Component, signal } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,11 @@ import { Component, signal } from '@angular/core';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('pratica-angular-1');
+  name = new FormControl('', [Validators.required]);
+  email = new FormControl('', [Validators.required]);
+
+  public registerLogs(){
+    console.log(this.name.value);
+    console.log(this.email.value);
+  }
 }
