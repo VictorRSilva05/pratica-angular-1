@@ -1,5 +1,5 @@
-import { Component, signal } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +8,14 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrl: './app.scss'
 })
 export class App {
-  name = new FormControl('', [Validators.required]);
-  email = new FormControl('', [Validators.required]);
 
-  public registerLogs(){
-    console.log(this.name.value);
-    console.log(this.email.value);
+  userForm = new FormGroup({
+    name: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required]),
+  });
+
+  public registerLogs() {
+    console.log(this.userForm.value);
   }
+
 }

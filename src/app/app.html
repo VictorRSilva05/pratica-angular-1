@@ -1,12 +1,16 @@
 <div class="container">
-  <div class="card">
-    <label for="name">Name:</label>
-    <input type="text" id="name" [formControl]="name">
+  <form [formGroup]="userForm">
+    <div class="card">
+      <label for="name">Name:</label>
+      <input type="text" id="name" formControlName="name">
 
-    <label for="email">Email:</label>
-    <input type="text" id="email" [formControl]="email">
-    <p>Current name: {{ name.value }}</p>
+      <label for="email">Email:</label>
+      <input type="text" id="email" formControlName="email">
 
-    <button [disabled]="email.invalid || name.invalid" (click)="registerLogs()">Register</button>
-  </div>
+      <p>Current name: {{ userForm.value.name }}</p>
+
+      <button [disabled]="userForm.invalid" (click)="registerLogs()">Register</button>
+    </div>
+  </form>
+
 </div>
