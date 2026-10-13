@@ -9,6 +9,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class App {
 
+  notification: boolean = false;
+
   userForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required]),
@@ -16,6 +18,10 @@ export class App {
 
   public registerLogs() {
     console.log(this.userForm.value);
+  }
+
+  public showNotification(){
+    this.notification = true;
   }
 
 }

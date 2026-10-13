@@ -10,7 +10,11 @@
       <p>Current name: {{ userForm.value.name }}</p>
 
       <button [disabled]="userForm.invalid" (click)="registerLogs()">Register</button>
+
+      <p *ngIf="notification">Notification received!</p>
     </div>
   </form>
 
+  <app-notification [username]="userForm.value.name ?? ''"  (notificationSent)="showNotification()"></app-notification>
 </div>
+
