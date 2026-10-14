@@ -10,9 +10,9 @@ export class Notification {
 
   @Input() username: string = '';
 
-  @Output() notificationSent = new EventEmitter<void>();
+  @Output() notificationSent = new EventEmitter<string>();
 
   public sendNotification(){
-    this.notificationSent.emit();
+    this.notificationSent.emit("Notified!");
   }
 }

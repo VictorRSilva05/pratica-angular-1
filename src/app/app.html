@@ -9,12 +9,12 @@
 
       <p>Current name: {{ userForm.value.name }}</p>
 
-      <button [disabled]="userForm.invalid" (click)="registerLogs()">Register</button>
+      <button type="button" [disabled]="userForm.invalid" (click)="registerLogs()">Register</button>
 
-      <p *ngIf="notification">Notification received!</p>
+      <p *ngIf="notification">{{notification}}</p>
     </div>
   </form>
 
-  <app-notification [username]="userForm.value.name ?? ''"  (notificationSent)="showNotification()"></app-notification>
+  <app-notification [username]="userForm.value.name ?? ''"  (notificationSent)="showNotification($event)"></app-notification>
 </div>
 

@@ -9,7 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class App {
 
-  notification: boolean = false;
+  notification: string = '';
 
   userForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
@@ -20,8 +20,8 @@ export class App {
     console.log(this.userForm.value);
   }
 
-  public showNotification(){
-    this.notification = true;
+  public showNotification(notification: string){
+    return this.notification  = notification;
   }
 
 }
